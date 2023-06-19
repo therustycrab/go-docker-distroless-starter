@@ -1,0 +1,31 @@
+name: Docker Build Test CI
+
+on:
+  pull_request:
+    branches: [ "main" ]
+    paths-ignore:
+      - "README.md"
+      - "LICENSE"
+      - ".gitignore"
+      - ".github/**"
+
+jobs:
+
+  build-test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Build and spin-up the Docker container
+    - uses: actions/checkout@v3
+    - uses: isbang/compose-action@v1.4.1
+      with:
+        up-flags: "--build -d"
+      
+    - name: Test the Go server endpoints
+      run: |
+        docker exec go-server curl http://localhost/
+        docker exec go-server curl http://localhost/health
+
+    - name: Bring down the Docker container
+      run: docker compose down
