@@ -7,8 +7,6 @@ Welcome to `@therustycrab/go-docker-server-starter`! This is a codebase that pro
 Before getting started, make sure you have the following requirements installed on your system:
 
 - Go
-  - [Echo](https://github.com/labstack/echo): `go get github.com/labstack/echo/v4`
-  - [Middleware](https://github.com/labstack/echo-jwt): `go get github.com/labstack/echo-jwt/v4`
 - Docker
 - Docker Compose
 
@@ -19,19 +17,25 @@ To build and run the server, follow these steps:
 1. Clone this repository:
 
    ```shell
-   git clone https://github.com/therustycrab/go-docker-server-starter.git
+   $ git clone https://github.com/therustycrab/go-docker-server-starter.git
    ```
 
 2. Change to the project directory:
 
    ```shell
-   cd go-docker-server-starter
+   $ cd go-docker-server-starter
    ```
 
-3. Build and start the server using Docker Compose:
+3. Download the Go module dependencies:
 
    ```shell
-   docker compose up --build -d
+   $ go get ./app/
+   ```
+
+4. Build and start the server using Docker Compose:
+
+   ```shell
+   $ docker compose up --build -d
    ```
 
    This command will build the Docker image and start the server in detached mode (`-d`). The server will be accessible at `http://localhost:8080`.
