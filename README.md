@@ -1,4 +1,10 @@
 # @therustycrab/go-docker-server-starter
+<p align="center">
+    <img alt="GitHub Workflow Status (with event)" src="https://img.shields.io/github/actions/workflow/status/therustycrab/go-docker-server-starter/docker-build-test.yml">
+    <a href="https://github.com/features/actions" title="Go to GitHub Actions homepage"><img src="https://img.shields.io/badge/CI-GitHub_Actions-blue?logo=github-actions&logoColor=white" alt="Made with GH Actions"></a>
+    <a href="https://www.docker.com/" title="Go to Docker homepage"><img src="https://img.shields.io/badge/Made_with-Docker-blue?logo=docker&logoColor=white" alt="Made with Docker"></a>
+    <a href="https://golang.org" title="Go to Go homepage"><img src="https://img.shields.io/badge/Go-1.20-blue?logo=go&logoColor=white" alt="Made with Go"></a>
+</p>
 
 Welcome to `@therustycrab/go-docker-server-starter`! This is a codebase that provides a simple way to start a Go HTTP server using Docker, Docker Compose, and Echo.
 
