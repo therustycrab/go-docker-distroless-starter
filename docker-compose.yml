@@ -1,0 +1,12 @@
+services:
+  docker-go-distroless:
+    build:
+      context: .
+    image: go-distroless
+    container_name: go-server
+    hostname: go-server
+    ports:
+      - 8080:8080
+    deploy:
+      restart_policy:
+        condition: on-failure
