@@ -35,7 +35,7 @@ To build and run the server, follow these steps:
 3. Download the Go module dependencies:
 
    ```shell
-   $ go get ./app/
+   $ go mod download && go mod verify
    ```
 
 4. Build and start the server using Docker Compose:
