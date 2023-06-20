@@ -7,7 +7,7 @@ on:
       - "README.md"
       - "LICENSE"
       - ".gitignore"
-      - ".github/**"
+  workflow_dispatch:
 
 jobs:
 
@@ -15,19 +15,33 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    services:
+      dind:
+        image: docker:23.0-rc-dind-rootless
+        ports:
+          - 2375:2375
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
 
+    - name: Set up Go
+      uses: actions/setup-go@v4.0.0
+      with:
+        go-version-file: go.mod
+
+    - name: Fetch required Go modules
+      run: go mod download && go mod verify
+  
     - name: Build and spin-up the Docker container
       uses: isbang/compose-action@v1.4.1
       with:
-        up-flags: "--build -d"
+        up-flags: "--build"
    
+    - name: Test with Docker
+      run: go test -v ./app/...
+
     - name: Test the Go server endpoints
       run: |
-        docker exec go-server curl http://localhost/
-        docker exec go-server curl http://localhost/health
-
-    - name: Bring down the Docker container
-      run: docker compose down
+        curl http://localhost:8080/
+        curl http:/localhost:8080/health
