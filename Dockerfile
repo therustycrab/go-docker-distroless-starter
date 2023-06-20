@@ -14,16 +14,21 @@ WORKDIR $GOPATH/src/mypackage/myapp/
 # use modules
 COPY go.mod go.sum ./
 
-ENV GO111MODULE=on
 RUN go mod download && go mod verify
 
-COPY app/*.go .
+COPY *.go .
 
 # Build the binary
 RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -a -installsuffix cgo -o /go/bin/hello .
 
 ############################
-# STEP 2 build a small image
+# STEP 2 Run the Go tests
+############################
+FROM builder AS run-test-stage
+RUN go test -v ./...
+
+############################
+# STEP 3 build a small image
 ############################
 # using base nonroot image
 # user:group is nobody:nobody, uid:gid = 65534:65534
