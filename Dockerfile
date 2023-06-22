@@ -1,5 +1,5 @@
-ARG  BUILDER_IMAGE=golang:buster
-ARG  DISTROLESS_IMAGE=gcr.io/distroless/base
+ARG  BUILDER_IMAGE=golang:1.20-buster
+ARG  DISTROLESS_IMAGE=gcr.io/distroless/base-debian11
 
 ############################
 # STEP 1 build executable binary
