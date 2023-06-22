@@ -1,6 +1,7 @@
 <h1 align="center">@therustycrab/go-docker-distroless-starter</h1>
 <p align="center">
-    <img alt="GitHub Workflow Status (with event)" src="https://img.shields.io/github/actions/workflow/status/therustycrab/go-docker-server-starter/docker-build-test.yml">
+    <img alt="GitHub Workflow Status (with event)" src="https://img.shields.io/github/actions/workflow/status/therustycrab/go-docker-server-starter/docker-build-test.yml?label=tests">
+    <img alt="GitHub Workflow Status (with event)" src="https://img.shields.io/github/actions/workflow/status/therustycrab/go-docker-server-starter/super-linter.yml?label=linter">
     <a href="https://github.com/features/actions" title="Go to GitHub Actions homepage"><img src="https://img.shields.io/badge/CI-GitHub_Actions-blue?logo=github-actions&logoColor=white" alt="Made with GH Actions"></a>
     <a href="https://www.docker.com/" title="Go to Docker homepage"><img src="https://img.shields.io/badge/Made_with-Docker-blue?logo=docker&logoColor=white" alt="Made with Docker"></a>
     <a href="https://golang.org" title="Go to Go homepage"><img src="https://img.shields.io/badge/Go-1.20-blue?logo=go&logoColor=white" alt="Made with Go"></a>
