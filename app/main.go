@@ -9,7 +9,6 @@ import (
 )
 
 func main() {
-
 	e := echo.New()
 
 	e.Use(middleware.Logger())
@@ -39,4 +38,3 @@ func IntMin(a, b int) int {
 	}
 	return b
 }
-
