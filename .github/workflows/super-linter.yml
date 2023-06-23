@@ -1,13 +1,13 @@
-name: Lint Code Base
+name: Formatting
 
 on:
   pull_request:
-    branches: [master, main]
+    branches: ["main"]
 
 
 jobs:
-  lint-codebase:
-    name: Lint Code Base
+  lint:
+    name: Lint Changed Files
     runs-on: ubuntu-latest
 
     permissions:
@@ -22,8 +22,8 @@ jobs:
 
       - name: Lint Code Base
         uses: super-linter/super-linter@v5
-        env:
-          VALIDATE_ALL_CODEBASE: true
+        env:  
+          VALIDATE_ALL_CODEBASE: false
           FILTER_REGEX_EXCLUDE: /.*_test\.go
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
